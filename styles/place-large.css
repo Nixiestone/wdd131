@@ -1,0 +1,16 @@
+.hero {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    background-image: url('images/hero-large.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+}
