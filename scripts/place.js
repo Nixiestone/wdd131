@@ -1,21 +1,83 @@
-document.getElementById('current-year').textContent = new Date().getFullYear();
-document.getElementById('last-modified').textContent = new Date(document.lastModified).toLocaleDateString();
+// ========== Static Data Section ==========
+const dataSection = document.querySelector("#data-section ul");
+dataSection.innerHTML = `
+  <li><strong>Area:</strong> 1,204 km²</li>
+  <li><strong>Population:</strong> 1.7 million</li>
+  <li><strong>Capital:</strong> Benin City</li>
+  <li><strong>Languages:</strong> English, Pidgin</li>
+  <li><strong>Currency:</strong> Nigerian Naira (₦)</li>
+  <li><strong>Time Zone:</strong> WAT (UTC+1)</li>
+  <li><strong>Calling Code:</strong> +234</li>
+  <li><strong>Internet TLD:</strong> .ng</li>
+`;
 
-function calculateWindChill(temp, windSpeed) {
-    // Formula for wind chill in Fahrenheit: 35.74 + 0.6215*T - 35.75*(V^0.16) + 0.4275*T*(V^0.16)
-    return 35.74 + (0.6215 * temp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temp * Math.pow(windSpeed, 0.16));
+// ========== Static Weather Data ==========
+const temp = 29;
+const windSpeed = 18;
+const description = "Partly Cloudy";
+const iconSrc = "https://openweathermap.org/img/wn/10d@2x.png"; // Colorful icon
+const iconAlt = description;
+
+// ===== Weather Section =====
+const weatherHeading = document.querySelector("#weather-section h2");
+const iconImg = document.createElement("img");
+iconImg.src = iconSrc;
+iconImg.alt = iconAlt;
+iconImg.id = "weather-icon";
+
+// Responsive icon placement
+function placeWeatherIcon() {
+  iconImg.remove(); // Remove first if already placed
+  if (window.innerWidth >= 768) {
+    // Large view: inline
+    weatherHeading.appendChild(iconImg);
+  } else {
+    // Mobile view: below h2
+    weatherHeading.insertAdjacentElement("afterend", iconImg);
+  }
 }
 
-const tempElement = document.getElementById('temp');
-const windSpeedElement = document.getElementById('wind-speed');
-const windChillElement = document.getElementById('wind-chill');
+// Initial placement
+placeWeatherIcon();
+// Re-check on window resize
+window.addEventListener("resize", placeWeatherIcon);
 
-const temp = parseFloat(tempElement.textContent);
-const windSpeed = parseFloat(windSpeedElement.textContent);
+// Fill weather list
+const weatherList = document.querySelector("#weather-section ul");
+weatherList.innerHTML = `
+  <li><strong>Temperature:</strong> ${temp}°C</li>
+  <li><strong>Conditions:</strong> ${description}</li>
+  <li><strong>Wind Speed:</strong> ${windSpeed} km/h</li>
+  <li><strong>Wind Chill:</strong> ${calculateWindChill(temp, windSpeed)}</li>
+`;
 
-if (temp <= 50 && windSpeed > 3) {
-    const windChill = calculateWindChill(temp, windSpeed);
-    windChillElement.textContent = windChill.toFixed(1) + "°F";
-} else {
-    windChillElement.textContent = "N/A";
+// Wind chill calculator
+function calculateWindChill(t, s) {
+  if (t <= 10 && s > 4.8) {
+    const chill =
+      13.12 +
+      0.6215 * t -
+      11.37 * Math.pow(s, 0.16) +
+      0.3965 * t * Math.pow(s, 0.16);
+    return chill.toFixed(1) + "°C";
+  } else {
+    return "N/A";
+  }
 }
+
+// ===== Footer Info =====
+const yearSpan = document.querySelector("#current-year");
+const modifiedSpan = document.querySelector("#last-modified");
+const modifiedDate = new Date(document.lastModified);
+
+const formatted = modifiedDate.toLocaleString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+});
+
+yearSpan.textContent = new Date().getFullYear();
+modifiedSpan.textContent = `${formatted} by Blessing Omoregie`;
