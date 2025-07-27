@@ -4,74 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Blessing Omoregie">
-    <meta name="description" content="Temple Album showcasing LDS temples around the world">
-    <title>Temple Albulm</title>
-    <link rel="stylesheet" href="styles/temples.css">
-    <link rel="stylesheet" href="styles/temples-large.css" media="">
-    <script src="scripts/temples.js" defer></script>
+    <meta name="description" content="Filtered Temple Album showcasing LDS temples around the world">
+    <title>Filtered Temple Album</title>
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+    <script src="scripts/filtered-temples.js" defer></script>
 </head>
 <body>
-
     <header>
-        <h1>Temple Album</h1>
+        <h1>Filtered Temple Album</h1>
         <nav>
-    <button id="menu-button" aria-label="Menu">☰</button>
-    <ul id="primary-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Old</a></li>
-        <li><a href="#">New</a></li>
-        <li><a href="#">Large</a></li>
-        <li><a href="#">Small</a></li>
-    </ul>
-</nav>
+            <button id="menu-button" aria-label="Menu">☰</button>
+            <ul id="primary-nav">
+                <li><a href="#" class="nav-link" data-filter="all">Home</a></li>
+                <li><a href="#" class="nav-link" data-filter="old">Old</a></li>
+                <li><a href="#" class="nav-link" data-filter="new">New</a></li>
+                <li><a href="#" class="nav-link" data-filter="large">Large</a></li>
+                <li><a href="#" class="nav-link" data-filter="small">Small</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h2>List of Temples</h2>
-        <div class="gallery">
-            
-            <figure>
-                <img src="images/temple1.webp" alt="Salt Lake Temple" width="200" loading="lazy">
-                <figcaption>Aba Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple2.png" alt="Logan Temple" width="200" loading="lazy">
-                <figcaption>Logan Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple3.png" alt="Manti Temple" width="200" loading="lazy">
-                <figcaption>Manti Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple4.png" alt="St. George Temple" width="200" loading="lazy">
-                <figcaption>St. George Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple5.png" alt="Provo City Center Temple" width="200" loading="lazy">
-                <figcaption>Provo City Center Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple6.png" alt="Bountiful Temple" width="200" loading="lazy">
-                <figcaption>Australian Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple7.png" alt="Ogden Temple" width="200" loading="lazy">
-                <figcaption>Rome Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple8.png" alt="Jordan River Temple" width="200" loading="lazy">
-                <figcaption>Jordan River Temple</figcaption>
-            </figure>
-            <figure>
-                <img src="images/temple9.webp" alt="Draper Temple" width="200" loading="lazy">
-                <figcaption>Draper Temple</figcaption>
-            </figure>
+        <div class="gallery" id="temple-cards">
+        
         </div>
-        </section>
     </main>
     <footer>
         <p>©️ <span id="currentyear"></span> Blessing Omoregie. All rights reserved. Nigeria.</p>
         <p id="lastModified"></p>
     </footer>
-    
 </body>
 </html>
