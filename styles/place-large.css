@@ -50,7 +50,6 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-/* Large view only */
 
 .weather h2 {
   display: flex;
@@ -62,7 +61,6 @@ main {
   border-radius: 6px;
 }
 
-/* Adjust inline icon */
 #weather-icon {
   width: 40px;
   height: 40px;

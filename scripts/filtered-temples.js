@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Temple data array
     const temples = [
         {
             templeName: "Aba Nigeria",
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             area: 116642,
             imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
         },
-        // Additional temples
+
         {
             templeName: "Rome Italy",
             location: "Rome, Italy",
@@ -90,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Function to create temple cards
     function createTempleCard(temple) {
         const card = document.createElement('div');
         card.className = 'temple-card';
@@ -106,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return card;
     }
 
-    // Function to display temples based on filter
     function displayTemples(filter = 'all') {
         const gallery = document.getElementById('temple-cards');
         gallery.innerHTML = '';
@@ -141,10 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initial display of all temples
     displayTemples();
 
-    // Add event listeners to nav links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -152,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const filter = this.dataset.filter;
             displayTemples(filter);
             
-            // Update active state
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
         });

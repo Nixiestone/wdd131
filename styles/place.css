@@ -16,7 +16,7 @@ body {
   background-color: var(--light);
   background-size: cover;
   color: #333;
-  padding: 10px; /* Margin around content to show background */
+  padding: 10px; 
 }
 
 header {
@@ -44,7 +44,6 @@ main {
   border-radius: 8px;
 }
 
-/* Floating Data and Weather boxes */
 .data,
 .weather {
   position: static;
@@ -55,7 +54,7 @@ main {
   box-shadow: none;
   padding: 1rem;
   border-radius: 8px;
-  text-align: center; /* ⬅️ Center all content */
+  text-align: center; 
 }
 .data {
   top: 10%;
